@@ -1,0 +1,804 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f5dbe5">
+<title>Happy Birthday, ALIZAY ♡</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%;overflow:hidden;font-family:Georgia,serif;background:#08070c;touch-action:pan-y}
+button{border:0;font:inherit;cursor:pointer;background:none;touch-action:manipulation}
+.scene{position:absolute;inset:0;display:none;overflow:hidden;width:100%;height:100%}
+.scene.on{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16px}
+.btn{padding:13px 30px;border-radius:999px;background:#d9578c;color:#fff;box-shadow:0 8px 28px #d9578c45;font:600 14px system-ui;position:relative;z-index:30;min-height:46px}
+.btn:active{transform:scale(.94)}
+.caption{text-align:center;width:92%;font-size:clamp(20px,3.2vw,42px);font-weight:bold;color:#704456;z-index:5;line-height:1.3}
+.sub{font:13px/1.4 system-ui;color:#96687d;margin-top:6px}
+.rise{animation:rise .9s cubic-bezier(.2,.9,.2,1) both}
+.sway{animation:sway 3s ease-in-out infinite}
+@keyframes rise{from{opacity:0;transform:translateY(40%) scale(.92)}to{opacity:1;transform:none}}
+@keyframes sway{0%,100%{rotate:-2deg}50%{rotate:2deg}}
+
+#s1{background:linear-gradient(135deg,#f5dbe5,#fff7fa);flex-direction:row;gap:clamp(20px,4vw,60px)}
+.photoFrame{width:min(380px,38vw);min-width:200px;aspect-ratio:4/5;background:#fff;padding:16px 16px 52px;rotate:-4deg;box-shadow:0 16px 48px #77485a35;position:relative}
+.photoArt{width:100%;height:100%;background:linear-gradient(145deg,#f8bdd2,#cda1c0);border-radius:6px;overflow:hidden}
+.photoArt img{width:100%;height:100%;object-fit:cover}
+.photoFrame b{position:absolute;bottom:16px;left:0;right:0;text-align:center;color:#5e4651;font-size:14px}
+.pin{text-align:center;min-width:200px;max-width:380px;width:100%}
+.pin h1{font-size:clamp(24px,3vw,40px);margin-bottom:16px;color:#4e3542}
+.dots{display:flex;justify-content:center;gap:12px;margin-bottom:18px}
+.dots i{width:34px;height:34px;border-radius:8px;background:#fff8;border:2px solid #fff}
+.dots i.on{background:#fff;border-color:#d9578c}
+.keys{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:270px;margin:auto}
+.keys button{aspect-ratio:1;border-radius:50%;background:#ffffff88;color:#654455;font:600 20px system-ui;min-height:52px}
+.error{height:22px;color:#b93d70;font:600 13px system-ui;margin-top:10px}
+
+#s2{background:radial-gradient(circle at 50% 50%,#fff 0,#ffeef6 30%,#f6c6da 72%,#e8a9c5 100%);padding:0}
+.flower-title{position:absolute;top:7%;left:0;right:0;color:#7b405a;font-size:clamp(28px,4.5vw,52px);font-weight:bold;text-align:center;z-index:30;text-shadow:0 2px 15px #fff}
+.flower-stage{position:absolute;inset:0;width:100%;height:100%;overflow:hidden}
+.flower-burst{position:absolute;inset:-15%;width:130%;height:130%;pointer-events:none;z-index:10}
+.burst-flower{position:absolute;left:50%;top:50%;width:52px;height:52px;transform:translate(-50%,-50%) scale(.02);opacity:0;animation:flowerFly 2.8s cubic-bezier(.08,.72,.15,1) forwards;will-change:transform,opacity}
+.burst-flower span{position:absolute;left:50%;top:50%;width:20px;height:31px;margin:-15px 0 0 -10px;border-radius:100% 8% 100% 8%;background:linear-gradient(145deg,#fff2f8,#f18bb5 55%,#d94f8e);filter:drop-shadow(0 3px 7px #c44d7b55)}
+.burst-flower span:nth-child(1){transform:rotate(0) translateY(-7px)}
+.burst-flower span:nth-child(2){transform:rotate(60deg) translateY(-7px)}
+.burst-flower span:nth-child(3){transform:rotate(120deg) translateY(-7px)}
+.burst-flower span:nth-child(4){transform:rotate(180deg) translateY(-7px)}
+.burst-flower span:nth-child(5){transform:rotate(240deg) translateY(-7px)}
+.burst-flower span:nth-child(6){transform:rotate(300deg) translateY(-7px)}
+.burst-flower b{position:absolute;left:50%;top:50%;width:13px;height:13px;transform:translate(-50%,-50%);border-radius:50%;background:#ffd66e;box-shadow:0 0 12px #ffd66e}
+@keyframes flowerFly{
+0%{opacity:0;transform:translate(-50%,-50%) scale(.02) rotate(0)}
+9%{opacity:1}
+100%{opacity:.98;transform:translate(calc(-50% + var(--x)),calc(-50% + var(--y))) scale(var(--s)) rotate(var(--r))}
+}
+.flower-core{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:clamp(130px,25vw,210px);height:clamp(130px,25vw,210px);animation:coreBloom 1.25s .1s both;z-index:20}
+.core-petal{position:absolute;left:50%;top:50%;width:40%;height:62%;margin:-31% 0 0 -20%;border-radius:100% 12% 100% 12%;background:linear-gradient(145deg,#ffeaf4,#e879a8);transform-origin:50% 100%}
+.cp1{transform:rotate(0) translateY(-4%)}
+.cp2{transform:rotate(60deg) translateY(-4%)}
+.cp3{transform:rotate(120deg) translateY(-4%)}
+.cp4{transform:rotate(180deg) translateY(-4%)}
+.cp5{transform:rotate(240deg) translateY(-4%)}
+.cp6{transform:rotate(300deg) translateY(-4%)}
+.core-center{position:absolute;left:50%;top:50%;width:32%;height:32%;transform:translate(-50%,-50%);border-radius:50%;background:#ffd06a;box-shadow:0 0 0 9px #ffd06a55,0 0 35px #ffd06a99}
+@keyframes coreBloom{0%{opacity:0;scale:.02;rotate:-45deg}55%{opacity:1;scale:1.12;rotate:8deg}100%{opacity:1;scale:1;rotate:0}}
+.flower-next{position:absolute;z-index:50;bottom:7%;left:50%;transform:translateX(-50%);min-width:180px;box-shadow:0 10px 35px #8b4d6a55}
+
+#s3,#s9{background:#f4dfe7;gap:8px}
+.character{width:min(40vw,420px);max-height:65vh;object-fit:contain}
+#s4{background:#fff;gap:12px}
+#s4 .caption{position:relative;z-index:30;color:#fff;text-shadow:0 0 20px #fff;opacity:0}
+.white-burst{position:absolute;inset:0;z-index:20;pointer-events:none;background:#fff;overflow:hidden}
+.white-burst:before{content:"";position:absolute;left:50%;top:50%;width:4vmax;height:4vmax;border-radius:50%;background:#fff;box-shadow:0 0 80px 30px #fff,0 0 180px 80px #fff;transform:translate(-50%,-50%) scale(.01);animation:whiteBurst 1.7s cubic-bezier(.08,.75,.12,1) forwards}
+.white-burst:after{content:"";position:absolute;inset:-20%;background:radial-gradient(circle at 50% 50%,#fff 0 8%,rgba(255,255,255,.98) 22%,rgba(255,255,255,.8) 43%,rgba(255,255,255,0) 72%);transform:scale(.03);opacity:0;animation:whiteGlow 1.7s ease-out forwards}
+@keyframes whiteBurst{0%{opacity:1;transform:translate(-50%,-50%) scale(.01)}45%{opacity:1;transform:translate(-50%,-50%) scale(16)}100%{opacity:0;transform:translate(-50%,-50%) scale(45)}}
+@keyframes whiteGlow{0%{opacity:0;transform:scale(.03)}25%{opacity:1;transform:scale(.7);filter:blur(4px) saturate(2)}70%{opacity:1;transform:scale(1.18);filter:blur(0) saturate(1.7)}100%{opacity:0;transform:scale(1.55);filter:blur(1px) saturate(1.4)}}
+
+#s5{background:#fff0f5;gap:4px}
+.cake-wrap{flex:1;position:relative;display:flex;align-items:center;justify-content:center;width:100%;max-height:68vh}
+.cake-img{width:min(50vw,560px);max-height:60vh;object-fit:contain}
+.slice-line{position:absolute;width:5px;height:54%;left:50%;top:23%;background:#fff;box-shadow:0 0 16px #fff,0 0 30px #ffb6c180;opacity:0;z-index:2;border-radius:4px}
+.slice-line.cut{opacity:1;animation:slash .5s both}
+@keyframes slash{from{transform:translateX(-160px) rotate(-18deg)}to{transform:translateX(160px) rotate(18deg)}}
+#cakeZone{position:absolute;inset:8% 6% 12%;z-index:3;touch-action:none}
+.hint{position:absolute;bottom:4%;left:50%;transform:translateX(-50%);background:#fff9;padding:10px 20px;border-radius:99px;font:600 13px system-ui;color:#5e3e4e;z-index:4;white-space:nowrap}
+
+#s6{background:linear-gradient(160deg,#fff0f5,#f7cadb);gap:12px}
+.birthday{text-align:center}
+.birthday h1{font-size:clamp(36px,7vw,76px);color:#8b3c60}
+.birthday p{font-size:clamp(18px,2.2vw,26px);color:#9e647c;margin-top:8px}
+#s7{background:#f6e6ec;gap:6px}
+.env{width:min(60vw,580px);max-height:62vh;object-fit:contain;animation:float 3s ease-in-out infinite;cursor:pointer}
+@keyframes float{50%{transform:translateY(-5%)}}
+#s8{background:radial-gradient(circle at 50% 10%,#fff8fb,#ead9df 68%,#d6b8c5);gap:12px}
+.paper{width:min(900px,94vw);height:min(79vh,680px);background:#fffdfa;border-radius:10px;padding:28px 38px;box-shadow:0 28px 72px #593d4728;display:flex;flex-direction:column;overflow:hidden}
+.paper h2{text-align:center;color:#793b5c;font-size:clamp(22px,3vw,34px)}
+.paper small{display:block;text-align:center;color:#bd8fa4;margin:4px 0 16px}
+.scroll{flex:1;overflow:auto;padding-right:16px;font:15px/1.8 system-ui;color:#453d42;overscroll-behavior:contain}
+.scroll p{margin-bottom:16px}
+.scroll .center{text-align:center}
+.scroll .highlight{color:#9b456e;font-weight:700}
+
+#s10{background:radial-gradient(circle at 50% 50%,#17152d 0%,#090817 30%,#020207 70%,#000 100%);padding:0;perspective:1500px}
+#s10:before{content:"";position:absolute;inset:-30%;background:radial-gradient(circle at 50% 50%,transparent 0 12%,#8d5cff12 18%,transparent 38%);opacity:.8;animation:galaxyDrift 18s linear infinite;pointer-events:none}
+#s10:after{content:"";position:absolute;width:75vw;height:75vw;border-radius:50%;background:radial-gradient(circle,#ffffff12,#d98cff0e 20%,#7040ff09 45%,transparent 70%);filter:blur(20px);left:50%;top:50%;transform:translate(-50%,-50%);pointer-events:none}
+@keyframes galaxyDrift{to{transform:rotate(360deg) scale(1.08)}}
+.stars{position:absolute;inset:0;background-image:radial-gradient(circle,#fff 1px,transparent 1.5px),radial-gradient(circle,#fff 1px,transparent 1.5px),radial-gradient(circle,#fff 1px,transparent 1.5px);background-size:73px 73px,113px 113px,181px 181px;background-position:0 0,31px 47px,77px 19px;opacity:.8;animation:starMove 12s linear infinite;pointer-events:none}
+@keyframes starMove{to{background-position:73px 73px,144px 160px,-104px 181px}}
+.tip{position:absolute;top:4%;left:50%;transform:translateX(-50%);color:#fff;opacity:.85;font:12px system-ui;z-index:40;text-align:center;width:94%;text-shadow:0 2px 15px #000}
+.world{position:absolute;inset:0;perspective:1500px;touch-action:none;display:flex;align-items:center;justify-content:center;z-index:5}
+.orbit{position:absolute;left:50%;top:50%;width:0;height:0;transform-style:preserve-3d}
+.mcard{position:absolute;left:50%;top:50%;width:clamp(88px,15vw,150px);height:clamp(120px,22vw,198px);padding:6px 6px 23px;background:#17171e;border:1px solid #ffffff24;border-radius:10px;box-shadow:0 18px 55px #000000cc,0 0 28px #b06cff18;transform-style:preserve-3d;cursor:pointer;display:flex;flex-direction:column;align-items:center;opacity:0;animation:cardAppear .65s cubic-bezier(.2,.8,.2,1) forwards;backface-visibility:hidden}
+.mcard img{width:100%;height:100%;object-fit:cover;border-radius:7px;display:block;background:#2a2833}
+.mcard span{position:absolute;bottom:4px;color:#fff;font:600 9px system-ui;text-shadow:0 2px 8px #000}
+@keyframes cardAppear{from{opacity:0;scale:.35;filter:blur(5px)}to{opacity:1;scale:1;filter:none}}
+.modal{position:absolute;inset:0;background:#000d;display:none;align-items:center;justify-content:center;backdrop-filter:blur(12px);z-index:100;padding:20px}
+.modal.show{display:flex}
+.detail{width:min(420px,88vw);background:#18171d;color:#fff;padding:14px;border-radius:12px;border:1px solid #ffffff18;max-height:90vh;overflow:auto;box-shadow:0 30px 100px #000}
+.detail img{width:100%;border-radius:8px}
+.detail h3{text-align:center;font:600 17px system-ui;margin:12px 0 14px}
+.detail button{width:100%;padding:12px;border-radius:8px;background:#ffffff14;color:#fff;font:600 14px system-ui}
+
+#s11{background:#08070c;gap:12px}
+#s11 .caption{color:#fff}
+.finalPhoto{width:min(48vw,460px);max-height:62vh;border-radius:10px;object-fit:contain}
+#s12{background:#08070c;color:#fff;text-align:center;gap:16px}
+.outro h1{font:700 clamp(36px,7vw,72px) Georgia}
+.handle{font:600 16px system-ui;margin-top:16px;color:#ddd}
+
+@media(max-width:768px){
+#s1{flex-direction:column;gap:14px}
+.photoFrame{width:min(280px,60vw);padding:12px 12px 44px}
+.pin{max-width:300px}
+.keys{max-width:220px}
+.keys button{font-size:17px;min-height:46px}
+.dots i{width:28px;height:28px}
+.flower-core{scale:.78}
+.character{width:min(60vw,300px);max-height:52vh}
+.cake-img{width:78vw;max-height:50vh}
+.paper{padding:18px 20px;height:min(78vh,560px)}
+.env{width:72vw;max-height:50vh}
+.tip{top:3.5%;font-size:11px}
+.mcard{width:clamp(76px,22vw,112px);height:clamp(104px,31vw,150px);padding:5px 5px 19px}
+.finalPhoto{width:68vw;max-height:52vh}
+}
+@media(max-width:480px){
+.photoFrame{width:min(220px,72vw);padding:10px 10px 36px}
+.pin h1{font-size:18px}
+.keys{max-width:170px;gap:8px}
+.keys button{font-size:15px;min-height:40px}
+.dots i{width:24px;height:24px}
+.paper{padding:14px 12px;height:min(76vh,380px)}
+.scroll{font-size:13px;line-height:1.6}
+.flower-core{scale:.62}
+.character{width:72vw;max-height:46vh}
+.cake-img{width:88vw;max-height:42vh}
+.env{width:80vw;max-height:44vh}
+.tip{font-size:10px}
+.mcard{width:clamp(68px,23vw,92px);height:clamp(92px,34vw,125px);padding:4px 4px 17px}
+.mcard span{font-size:8px}
+.finalPhoto{width:78vw;max-height:46vh}
+.flower-next{bottom:5%;min-width:170px;padding:12px 18px}
+}
+</style>
+</head>
+
+<body>
+<main id="app">
+
+<section class="scene on" id="s1">
+  <div class="photoFrame">
+    <div class="photoArt"><img src="assets/photo.png" alt="Alizay photo"></div>
+    <b>For ALIZAY</b>
+  </div>
+  <div class="pin">
+    <h1>Enter Passcode</h1>
+    <div class="dots" id="dots"><i></i><i></i><i></i><i></i></div>
+    <div class="keys">
+      <button>1</button><button>2</button><button>3</button>
+      <button>4</button><button>5</button><button>6</button>
+      <button>7</button><button>8</button><button>9</button>
+      <button>*</button><button>0</button><button>⌫</button>
+    </div>
+    <div class="error" id="err" aria-live="polite"></div>
+  </div>
+</section>
+
+<section class="scene" id="s2">
+  <div class="flower-title">For ALIZAY ♡</div>
+  <div class="flower-stage">
+    <div class="flower-burst" id="flowerBurst"></div>
+    <div class="flower-core">
+      <div class="core-petal cp1"></div><div class="core-petal cp2"></div>
+      <div class="core-petal cp3"></div><div class="core-petal cp4"></div>
+      <div class="core-petal cp5"></div><div class="core-petal cp6"></div>
+      <div class="core-center"></div>
+    </div>
+  </div>
+  <button class="btn flower-next" id="flowerNext">Continue ♡</button>
+</section>
+
+<section class="scene" id="s3">
+  <img class="character sway rise" src="assets/character.png" alt="Character">
+  <div class="caption">Someone special is waiting…</div>
+  <button class="btn" data-go="s4">Continue</button>
+</section>
+
+<section class="scene" id="s4">
+  <div class="white-burst"></div>
+  <div class="caption">✨ A surprise is coming ✨</div>
+</section>
+
+<section class="scene" id="s5">
+  <div class="caption">Swipe to Cut the Cake! 🎂<div class="sub">Make one big swipe across the cake</div></div>
+  <div class="cake-wrap">
+    <img class="cake-img" src="assets/cake.png" alt="Birthday cake">
+    <div class="slice-line" id="slash"></div>
+    <div id="cakeZone"></div>
+    <div class="hint" id="cakeHint">Swipe / drag anywhere on the cake</div>
+  </div>
+</section>
+
+<section class="scene" id="s6">
+  <div class="birthday">
+    <h1>Happy Birthday, ALIZAY 💗</h1>
+    <p>Today is all about you.</p>
+  </div>
+  <button class="btn" data-go="s7">Next 💕</button>
+</section>
+
+<section class="scene" id="s7">
+  <div class="caption">A Letter, Just For You<div class="sub">Tap the envelope</div></div>
+  <img class="env" id="env" src="assets/letter.png" alt="Birthday letter envelope"
+       onerror="this.onerror=null;this.src='assets/envelope.png'">
+</section>
+
+<!-- UPDATED ALIZAY LETTER -->
+
+<!-- ALIZAY'S COMPLETE BIRTHDAY LETTER -->
+<section class="scene" id="s8">
+  <div class="paper">
+    <h2>𝐇𝐀𝐏𝐏𝐘 𝐁𝐈𝐑𝐓𝐇𝐃𝐀𝐘 𝐀𝐋𝐈𝐙𝐀𝐘 🌸</h2>
+    <small>Turning mine on 15/16 Nov 🎉</small>
+
+    <div class="scroll">
+
+      <p class="center highlight">
+        🥹🎀 — 𝐇𝐀𝐏𝐏𝐘 𝐁𝐈𝐑𝐓𝐇𝐃𝐀𝐘 𝐀𝐋𝐈𝐙𝐀𝐘 🫵🏻💍🎂🌸
+      </p>
+
+      <p>
+        In The Story Of My Life, ALIZAY are The Most Beautiful
+        Chapter......♡🥹🎀🫀
+      </p>
+
+      <p>
+        <strong>ALIZAY Are Not Just My Bestie,</strong><br>
+        ALIZAY are My Janu, My Darling, My Favourite Person......♡🌷🤍
+      </p>
+
+      <p>
+        <em>Teri Salgirah 15/16 NOV ka har din meri rooh mein
+        roshni le aata hai ALIZAY, sochna, ALIZAY ke liye dua
+        karna, meri aadat ban gaya</em>
+        🔗💗🫀🌸🫶
+      </p>
+
+      <p class="center highlight">
+        ♡• ALIZAY Tum Jaisa Koi Nahi Ho Sakta
+        Tum Meri Duniya Ho • 🌈❤️🫂
+      </p>
+
+      <p>
+        ALIZAY meri jawn.......♥︎<br>
+        ALIZAY meri zindagi......♥︎<br>
+        ALIZAY mera sukoon .......♥︎<br>
+        ALIZAY meri chain........♥︎<br>
+        ALIZAY meri chahat ......♥︎<br>
+        ALIZAY mera ishq .....♥︎<br>
+        ALIZAY meri kainaat .....♥︎<br>
+        ALIZAY meri rahat ..........♥︎<br>
+        ALIZAY meri muskurahat .......♥︎
+      </p>
+
+      <p class="center highlight">
+        Ap ke bina me adhura ALIZAY
+        ♥︎🌸🥹🫂🌎❤️🙈🫶🏻
+      </p>
+
+      <p>
+        <em>
+          Meri zindagi ka Qimte ehsaas ho ALIZAY tum ho,
+          Mera sukoon ho Meri shehzadi ALIZAY, aj 16 NOV
+          tum MRE ho gai ho aur me chahta hu tumhare har din
+          me khushiyan hon🥺🤌🏻🫀 Allah tumhe har gham se
+          bachaye aur har khushi tumhare qadam chume.
+          Mera bacha, Meri shuni ALIZAY, I love you so much.
+          Meri choti gulu mulu ALIZAY, me qurban jau tumpe,
+          apni khushiyan bhi me tumpe waar du.
+          Thank you ALIZAY har cheez me Mera sath Dene ke liye,
+          mujhe support karne ke liye. Tum ho to sabkuch hai
+          mere pas, tumhare bagair ye duniya adhuri hai.
+          I love you sooo muchh ❤️🫂🥹 ALIZAY HAPPY 18th
+          BIRTHDAY, etna ziyada piyar karta hu me tum sy,
+          Meri piyari se Nani si shehzadi ALIZAY,
+          My world 💍🌎🌸🎂
+        </em>
+      </p>
+
+      <p>
+        <strong>
+          ALIZAY's Smile 🥺💗 — ALIZAY tum meri aadat bhi ho...
+          Aur meri sabse khobsurat mohabat bhi...🫀🌍
+        </strong>
+      </p>
+
+      <p>
+        <strong>
+          I Chose ALIZAY, Every day, Every moment,
+          Without any doubt......♡💍♾️
+        </strong>
+      </p>
+
+      <p>
+        <em>ALIZAY se baat kiye bina...</em>
+        Mera din kabhi mukammal nahi hota...🥹🫶🏻
+      </p>
+
+      <p>
+        <strong>
+          ALIZAY Are My peace, My safe place,
+          My happiness......♡🌈🤍
+        </strong>
+      </p>
+
+      <p>
+        <em>Meri har dua mein...</em>
+        Sabse pehla naam ALIZAY ka hota hai...🤲🏻🌷
+      </p>
+
+      <p>
+        <strong>
+          Forever My Favourite ALIZAY,
+          And forever my bestie......♡💋🧸
+        </strong>
+      </p>
+
+      <p>
+        <em>Jo sukoon mujhe ALIZAY mein milta hai...</em>
+        Wo kahin aur kabhi nahi mila...🌸🫀
+      </p>
+
+      <p class="center highlight">
+        No One Can Replace ALIZAY in my life......♡🌍💖
+      </p>
+
+      <p class="center highlight">
+        ♡Forever......Bestie......ALIZAY......♡
+      </p>
+
+      <p class="center">
+        ✩̣𝐁𝐨𝐲𝐟𝐫𝐢𝐞𝐧𝐝 𝐁𝐢𝐫𝐭𝐡𝐝𝐚𝐲 𝐖𝐢𝐬𝐡
+        𝐅𝐨𝐫 𝐀𝐋𝐈𝐙𝐀𝐘 - 𝟏𝟖 𝐘𝐞𝐚𝐫𝐬 𝐎𝐥𝐝
+        💋💍🎂🌎
+      </p>
+
+      <p class="center highlight">
+        <em>
+          ⁸ 𝗕𝗶𝗹𝗶𝗼𝗻 𝗣𝗲𝗼𝗽𝗹𝗲 𝗜𝗻 𝗧𝗵𝗶𝘀 𝗪𝗼𝗿𝗹𝗱
+          𝗕𝘂𝘁 𝗢𝗻𝗹𝘆 𝗢𝗻𝗲 𝗔𝗟𝗜𝗭𝗔𝗬
+          𝗪𝗵𝗼𝘀𝗲 MINE 𝗕𝗶𝗿𝘁𝗵𝗱𝗮𝘆 𝗜𝘀 𝗢𝗻
+          NOVEMBER 🌎🥹🎀
+        </em>
+      </p>
+
+      <p class="center highlight">
+        ♡ WITH LOVE, FOREVER ALIZAY ♡
+      </p>
+
+    </div>
+  </div>
+
+  <button class="btn" data-go="s9">
+    Continue to Memories 💌
+  </button>
+</section>
+
+
+<section class="scene" id="s9">
+  <img class="character sway rise" src="assets/character.png" alt="Character">
+  <div class="caption">Now… let's visit some memories.</div>
+  <button class="btn" data-go="s10">Enter Memories ✨</button>
+</section>
+
+
+<section class="scene" id="s10">
+  <div class="stars"></div>
+  <div class="tip">یادوں کو چھو کر دیکھو، ہر تصویر میں ایک کہانی ہے ♡</div>
+
+  <div class="world" id="world">
+    <div class="orbit" id="orbit">
+
+      <div class="mcard" data-title="تم میری سب سے حسین کہانی ہو"><img src="assets/memory-01.png" alt="Memory 1"><span>تم میری کہانی ہو ♡</span></div>
+
+      <div class="mcard" data-title="تمہارے ساتھ ہر لمحہ خاص ہے"><img src="assets/memory-02.png" alt="Memory 2"><span>ہر لمحہ خاص ہے ♡</span></div>
+
+      <div class="mcard" data-title="تم رہو تو زندگی خوبصورت لگتی ہے"><img src="assets/memory-03.png" alt="Memory 3"><span>زندگی خوبصورت ہے ♡</span></div>
+
+      <div class="mcard" data-title="تمہاری مسکراہٹ میرا سکون ہے"><img src="assets/memory-04.png" alt="Memory 4"><span>تمہاری مسکراہٹ ♡</span></div>
+
+      <div class="mcard" data-title="میری ہر خوشی تم سے ہے"><img src="assets/memory-05.png" alt="Memory 5"><span>میری ہر خوشی تم ♡</span></div>
+
+      <div class="mcard" data-title="تم ہو تو سب کچھ ہے"><img src="assets/memory-06.png" alt="Memory 6"><span>تم ہو تو سب ہے ♡</span></div>
+
+      <div class="mcard" data-title="کچھ لوگ دل کے بہت قریب ہوتے ہیں"><img src="assets/memory-07.png" alt="Memory 7"><span>دل کے قریب ♡</span></div>
+
+      <div class="mcard" data-title="تمہاری ہنسی میری پسندیدہ آواز ہے"><img src="assets/memory-08.png" alt="Memory 8"><span>تمہاری ہنسی ♡</span></div>
+
+      <div class="mcard" data-title="میری ہر دعا میں تم شامل ہو"><img src="assets/memory-09.png" alt="Memory 9"><span>میری ہر دعا ♡</span></div>
+
+      <div class="mcard" data-title="تم میری چھوٹی سی دنیا ہو"><img src="assets/memory-10.png" alt="Memory 10"><span>میری دنیا ♡</span></div>
+
+      <div class="mcard" data-title="تم سے بات ہو تو دن مکمل ہوتا ہے"><img src="assets/memory-11.png" alt="Memory 11"><span>دن مکمل ہوتا ہے ♡</span></div>
+
+      <div class="mcard" data-title="تم میری زندگی کا حسین احساس ہو"><img src="assets/memory-12.png" alt="Memory 12"><span>حسین احساس ♡</span></div>
+
+      <div class="mcard" data-title="تم جیسا کوئی دوسرا نہیں"><img src="assets/memory-13.png" alt="Memory 13"><span>تم جیسا کوئی نہیں ♡</span></div>
+
+      <div class="mcard" data-title="تمہارا ساتھ میری خوش نصیبی ہے"><img src="assets/memory-14.png" alt="Memory 14"><span>میری خوش نصیبی ♡</span></div>
+
+      <div class="mcard" data-title="تم ہمیشہ میری پسندیدہ رہو گی"><img src="assets/memory-15.png" alt="Memory 15"><span>ہمیشہ میری پسند ♡</span></div>
+
+    </div>
+  </div>
+
+  <button class="btn" id="finishMemories" style="position:absolute;bottom:20px;left:50%;transform:translateX(-50%);z-index:50">
+    یادیں ہمیشہ رہیں گی ♡
+  </button>
+
+  <div class="modal" id="modal">
+    <div class="detail">
+      <img id="detailImg" src="" alt="Memory detail">
+      <h3 id="detailTitle" dir="rtl"></h3>
+      <button id="close">↩ واپس یادوں میں</button>
+    </div>
+  </div>
+</section>
+
+<section class="scene" id="s11">
+  <img class="finalPhoto" src="assets/memory-09.png" alt="A special memory">
+  <div class="caption">One memory at a time. ♡</div>
+  <button class="btn" data-go="s10">Back to Memories</button>
+  <button class="btn" data-go="s12">Forever ♡</button>
+</section>
+
+<section class="scene" id="s12">
+  <div class="outro">
+    <h1>Happy Birthday ♡</h1>
+    <div class="handle">For ALIZAY ♡</div>
+  </div>
+  <button class="btn" data-go="s1" id="replay">Replay</button>
+</section>
+
+</main>
+
+<script>
+"use strict";
+
+const PASS = "1516";
+const scenes = [...document.querySelectorAll(".scene")];
+
+let pin = "";
+let timers = [];
+let cut = false;
+let down = null;
+
+function clearTimers(){
+  timers.forEach(timer => clearTimeout(timer));
+  timers = [];
+}
+
+function later(callback, delay){
+  const timer = setTimeout(callback, delay);
+  timers.push(timer);
+  return timer;
+}
+
+const err = document.getElementById("err");
+const slash = document.getElementById("slash");
+const cakeHint = document.getElementById("cakeHint");
+const flowerBurst = document.getElementById("flowerBurst");
+const flowerNext = document.getElementById("flowerNext");
+const orbit = document.getElementById("orbit");
+const world = document.getElementById("world");
+const cards = [...document.querySelectorAll(".mcard")];
+const modal = document.getElementById("modal");
+const detailImg = document.getElementById("detailImg");
+const detailTitle = document.getElementById("detailTitle");
+
+function go(id){
+  const target = document.getElementById(id);
+  if(!target) return;
+
+  clearTimers();
+
+  scenes.forEach(scene => {
+    scene.classList.toggle("on", scene.id === id);
+  });
+
+  if(id === "s2") resetFlowers();
+
+  if(id === "s4"){
+    later(() => go("s5"), 2200);
+  }
+
+  if(id === "s5"){
+    cut = false;
+    down = null;
+    slash.classList.remove("cut");
+    cakeHint.textContent = "Swipe / drag anywhere on the cake";
+  }
+
+  if(id === "s10"){
+    rx = 0;
+    ry = 0;
+    autoSpin = 0;
+    positionGalaxy();
+    applyGalaxy();
+  }
+
+  if(id === "s1"){
+    pin = "";
+    updateDots();
+    err.textContent = "";
+  }
+}
+
+// PIN SYSTEM
+function updateDots(){
+  document.querySelectorAll("#dots i").forEach((dot,index) => {
+    dot.classList.toggle("on", index < pin.length);
+  });
+}
+
+function checkPin(){
+  if(pin === PASS){
+    go("s2");
+  }else{
+    err.textContent = "Wrong passcode 💗";
+    pin = "";
+    updateDots();
+    later(() => err.textContent = "", 1200);
+  }
+}
+
+function addPin(value){
+  if(value === "⌫"){
+    pin = pin.slice(0,-1);
+  }else if(/^\d$/.test(value) && pin.length < 4){
+    pin += value;
+  }
+
+  updateDots();
+
+  if(pin.length === 4){
+    later(checkPin,150);
+  }
+}
+
+document.querySelectorAll(".keys button").forEach(button => {
+  button.addEventListener("click", () => {
+    addPin(button.textContent.trim());
+  });
+});
+
+document.addEventListener("keydown", event => {
+  if(!document.getElementById("s1").classList.contains("on")) return;
+
+  if(/^\d$/.test(event.key)) addPin(event.key);
+  if(event.key === "Backspace") addPin("⌫");
+  if(event.key === "Enter" && pin.length === 4) checkPin();
+});
+
+// NAVIGATION BUTTONS
+document.querySelectorAll("[data-go]").forEach(button => {
+  button.addEventListener("click", () => go(button.dataset.go));
+});
+
+// FLOWER BURST
+function resetFlowers(){
+  flowerBurst.innerHTML = "";
+
+  const count = 340;
+  const maxRadius = Math.hypot(innerWidth,innerHeight) * 1.02;
+
+  for(let i=0;i<count;i++){
+    const flower = document.createElement("div");
+    flower.className = "burst-flower";
+
+    for(let j=0;j<6;j++){
+      flower.appendChild(document.createElement("span"));
+    }
+
+    flower.appendChild(document.createElement("b"));
+
+    const angle = (i/count) * Math.PI * 2 + (Math.random()-.5)*.55;
+    const radius = 80 + Math.random()*maxRadius;
+
+    flower.style.setProperty("--x",Math.cos(angle)*radius+"px");
+    flower.style.setProperty("--y",Math.sin(angle)*radius+"px");
+    flower.style.setProperty("--s",.28+Math.random()*1.15);
+    flower.style.setProperty("--r",(Math.random()-.5)*420+"deg");
+    flower.style.animationDelay = Math.random()*1.15+"s";
+
+    flowerBurst.appendChild(flower);
+  }
+}
+
+flowerNext.addEventListener("click", () => go("s3"));
+
+// CAKE SWIPE
+const zone = document.getElementById("cakeZone");
+
+zone.addEventListener("pointerdown", event => {
+  if(cut) return;
+
+  down = {x:event.clientX,y:event.clientY};
+
+  try{
+    zone.setPointerCapture(event.pointerId);
+  }catch(error){}
+});
+
+zone.addEventListener("pointermove", event => {
+  if(!down || cut) return;
+
+  const distance = Math.hypot(
+    event.clientX-down.x,
+    event.clientY-down.y
+  );
+
+  if(distance > 110){
+    cut = true;
+    down = null;
+    slash.classList.add("cut");
+    cakeHint.textContent = "Cake cut! 🎂";
+    later(() => go("s6"),900);
+  }
+});
+
+zone.addEventListener("pointerup", () => down = null);
+zone.addEventListener("pointercancel", () => down = null);
+
+// ENVELOPE
+document.getElementById("env").addEventListener("click", () => go("s8"));
+
+// 3D MEMORY GALAXY
+let dragging = false;
+let px = 0;
+let py = 0;
+let rx = 0;
+let ry = 0;
+let autoSpin = 0;
+let lastT = performance.now();
+
+function positionGalaxy(){
+  const W = innerWidth;
+  const H = innerHeight;
+
+  const mobile = W <= 480;
+  const tablet = W <= 768;
+
+  const radiusX = mobile ? Math.min(W*.56,235) :
+    tablet ? Math.min(W*.50,400) : Math.min(W*.48,620);
+
+  const radiusY = mobile ? Math.min(H*.38,300) :
+    tablet ? Math.min(H*.40,370) : Math.min(H*.43,470);
+
+  const depth = mobile ? Math.min(W*.18,90) : Math.min(W*.24,210);
+
+  cards.forEach((card,index) => {
+    const angle = index/cards.length*Math.PI*2;
+
+    const x = Math.sin(angle)*radiusX;
+    const y = Math.cos(angle*1.35)*radiusY*.72;
+    const z = Math.cos(angle)*depth + Math.sin(angle*2.1)*depth*.45;
+
+    const scale = .62 + (z+depth*1.45)/(depth*2.9)*.50;
+    const tilt = Math.sin(angle)*12;
+
+    card.style.transform =
+      `translate(-50%,-50%) translate3d(${x}px,${y}px,${z}px) rotate(${tilt}deg) scale(${scale})`;
+
+    card.style.zIndex = String(Math.round(1000+z));
+  });
+}
+
+function applyGalaxy(){
+  orbit.style.transform = `rotateX(${rx}deg) rotateY(${ry+autoSpin}deg)`;
+  positionGalaxy();
+}
+
+function animateGalaxy(time){
+  const delta = Math.min(40,time-lastT);
+  lastT = time;
+
+  if(document.getElementById("s10").classList.contains("on") && !dragging){
+    autoSpin += delta*.018;
+  }
+
+  applyGalaxy();
+  requestAnimationFrame(animateGalaxy);
+}
+
+requestAnimationFrame(animateGalaxy);
+
+world.addEventListener("pointerdown",event => {
+  if(event.target.closest(".mcard")) return;
+  if(event.target.closest("button")) return;
+
+  dragging = true;
+  px = event.clientX;
+  py = event.clientY;
+
+  try{
+    world.setPointerCapture(event.pointerId);
+  }catch(error){}
+});
+
+world.addEventListener("pointermove",event => {
+  if(!dragging) return;
+
+  ry += (event.clientX-px)*.32;
+  rx -= (event.clientY-py)*.20;
+
+  px = event.clientX;
+  py = event.clientY;
+});
+
+function stopDragging(){
+  dragging = false;
+}
+
+world.addEventListener("pointerup",stopDragging);
+world.addEventListener("pointercancel",stopDragging);
+
+window.addEventListener("resize",() => {
+  if(document.getElementById("s10").classList.contains("on")){
+    positionGalaxy();
+  }
+});
+
+// MEMORY IMAGE ERROR HANDLING
+cards.forEach(card => {
+  const img = card.querySelector("img");
+
+  img.addEventListener("error",() => {
+    img.style.display = "none";
+    card.style.background = "linear-gradient(145deg,#633c69,#251c38)";
+  });
+});
+
+// MEMORY MODAL
+cards.forEach(card => {
+  card.addEventListener("click",event => {
+    event.stopPropagation();
+
+    const image = card.querySelector("img");
+
+    detailImg.src = image.src;
+    detailImg.style.display = image.style.display === "none" ? "none" : "block";
+    detailTitle.textContent = card.dataset.title;
+
+    modal.classList.add("show");
+  });
+});
+
+document.getElementById("close").addEventListener("click",() => {
+  modal.classList.remove("show");
+});
+
+modal.addEventListener("click",event => {
+  if(event.target === modal){
+    modal.classList.remove("show");
+  }
+});
+
+// FINISH MEMORIES
+document.getElementById("finishMemories").addEventListener("click",() => {
+  modal.classList.remove("show");
+  go("s11");
+});
+
+// REPLAY
+document.getElementById("replay").addEventListener("click",() => {
+  modal.classList.remove("show");
+  go("s1");
+  pin = "";
+  updateDots();
+});
+</script>
+</body>
+</html>
